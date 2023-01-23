@@ -46,7 +46,8 @@ const checkCredentials = async(email, password) => {
         var url = await page.url();
         console.log(url);
         const page2 = await browser.newPage();
-        await page2.goto('https://www.sggscc.ac.in/smartprof/attendance-summary-student.php'); 
+        await page2.goto('https://www.sggscc.ac.in/smartprof/attendance-summary-student.php');
+        await page2.waitForSelector('select#paperId'); 
         await browser.close()
         return true
     } catch (error) {

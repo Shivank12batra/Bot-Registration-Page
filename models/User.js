@@ -9,12 +9,13 @@ const UserSchema = new mongoose.Schema({
         minlength: 3
     },
     contactNumber: {
-        type: Number,
+        type: String,
         required: [true, 'Please provide contact number'],
         match: [
             /^[6-9]\d{9}$/,
             'Please provide a valid contact number'
-        ]
+        ],
+        unique: true
     },
     email: {
         type: String,
