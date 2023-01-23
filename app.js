@@ -1,5 +1,7 @@
 require('dotenv').config();
 require('express-async-errors');
+
+const register = require('./routes/authenticate');
 const notFound = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler');
 const connectDB = require('./db/connect');
@@ -12,6 +14,8 @@ const app = express();
 
 app.use(express.static('./public'));
 app.use(express.json());
+
+app.use('/api/v1/register', register)
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
