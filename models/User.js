@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -7,10 +8,13 @@ const UserSchema = new mongoose.Schema({
         maxlength: 50,
         minlength: 3
     },
-    phoneNumber: {
+    contactNumber: {
         type: Number,
         required: [true, 'Please provide contact number'],
-        maxlength: 10
+        match: [
+            /^[6-9]\d{9}$/,
+            'Please provide a valid contact number'
+        ]
     },
     email: {
         type: String,
@@ -27,5 +31,10 @@ const UserSchema = new mongoose.Schema({
         minlength: 5
     }
 })
+
+UserSchema.pre('save', async function() {
+    const salt = await bcrypt.genSalt(10)
+    this.password = await bcrypt.hash(this.password, salt)
+  })
 
 module.exports = mongoose.model('User', UserSchema)
