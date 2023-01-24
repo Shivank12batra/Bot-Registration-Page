@@ -6,6 +6,7 @@
     /* Add white background */
     body {
       background-color: #fff;
+      padding-inline-start: 0;
     }
     /* Center heading and form on page */
     .container {
@@ -30,15 +31,15 @@
     input[type="tel"],
     input[type="email"],
     input[type="password"] {
-      width: 80%;
-      padding: 12px 20px;
+      width: 100%;
+      padding: 12px 5px;
       margin: 8px 0;
       box-sizing: border-box;
       border: 2px solid #8b72a5;
       border-radius: 4px;
     }
     input[type="submit"] {
-      width: 80%;
+      width: 100%;
       background-color: #8b72a5;
       color: #fff;
       padding: 14px 20px;
@@ -47,6 +48,60 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  display: none;
+}
+#output {
+  width: 100%;
+  /* max-width: 90%; */
+      padding: 12px 0px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #8b72a5; 
+      padding-inline-start: 0;
+      border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #8b72a5;
+}
+
+#loader {
+    display: none;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    z-index: 11;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 600px) {
+    #loader {
+        width: 40px;
+        height: 40px;
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+    }
+}
+
+
+
     /* Make form responsive for mobile screens */
     @media (max-width: 600px) {
       h1 {
@@ -72,7 +127,8 @@
 <body>
   <div class="container">
     <h1>Attendance Bot Registration</h1>
-    <form>
+    <div id="loader"></div>
+    <form class="form-class">
       <label for="name">Name:</label>
       <br>
       <input type="text" id="name" name="name" required><br>
@@ -82,9 +138,24 @@
       <input type="email" id="email" name="email" required><br>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required><br>
-      <input type="submit" value="Submit">
+      <input id="submit-btn" type="submit" value="Submit">
+      <!-- <div id="output"></div> -->
     </form>
+    <div id="output"></div>
+    <div id="overlay"></div>
+      <!-- <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div> -->
   </div>
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+  </script>
+  <script src="./browser-app.js"></script>
 </body>
 </html>
 
