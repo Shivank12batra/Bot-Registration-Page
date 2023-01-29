@@ -36,7 +36,4 @@ submitBtn.addEventListener('click', async(e) => {
             output.innerHTML = error.response.data.msg
         });
     }, 2000);
-    setTimeout(() => {
-        output.innerHTML = ''
-    }, 10000)
 })

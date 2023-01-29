@@ -16,7 +16,7 @@ const register = async(req, res) => {
         throw new UnauthenticatedError('The email or password provided is incorrect')
     }
     console.log(contactNumber)
-    await sendRegisterMessage(user.contactNumber)
+    // await sendRegisterMessage(user.contactNumber)
     res.status(StatusCodes.CREATED).json({msg: `You have been subscribed to the attendance chatbot and will be receiving updates on ${user.contactNumber}`})
 }
 
