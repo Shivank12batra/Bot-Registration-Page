@@ -31,7 +31,7 @@ const sendRegisterMessage = async(number) => {
         console.log(number_details)
         if (number_details) {
             await client.sendMessage(number_details._serialized, sendData.message); //send message
-                console.log('message send successfully!')
+            console.log('message send successfully!')
         } else {
             console.log(final_number, "Mobile number is not registered");
         }
