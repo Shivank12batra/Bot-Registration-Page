@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Attendance Bot Registration</title>
   <style>
     /* Add white background */
@@ -13,13 +14,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 3.125rem;
+      margin-top: 1rem;
     }
     /* Styling for heading and labels */
     h1 {
       color: #8b72a5;
-      font-size: 2.5em;
+      font-size: 2.5rem;
       margin-bottom: 1.8rem;
+    }
+    p {
+      color: #8b72a5;
+      text-align: center;
+      font-size: 1.3rem;
+      max-width: 70%;
+    }
+
+    .form-class {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     label {
       color: #8b72a5;
@@ -31,7 +46,8 @@
     input[type="tel"],
     input[type="email"],
     input[type="password"] {
-      width: 100%;
+      display: block;
+      width: 50%;
       padding: 0.8rem 0.25rem;
       margin: 0.5rem 0;
       box-sizing: border-box;
@@ -39,7 +55,7 @@
       border-radius: 4px;
     }
     input[type="submit"] {
-      width: 100%;
+      width: 50%;
       background-color: #8b72a5;
       color: #fff;
       padding: 0.8rem 1rem;
@@ -64,7 +80,7 @@
       padding:  0px;
       margin: 0.5rem 0;
       box-sizing: border-box;
-      border: 0.1rem solid #8b72a5;
+      /* border: 0.1rem solid #8b72a5; */
       padding-inline-start: 0;
       border-radius: 0.2rem;
   text-align: center;
@@ -99,45 +115,24 @@
         border-top: 0.5rem solid #3498db;
     }
 }
-
-
-
-    /* Make form responsive for mobile screens */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5em;
-      }
-      label {
-        font-size: 0.8rem;
-      }
-      input[type="text"],
-      input[type="tel"],
-      input[type="email"],
-      input[type="password"] {
-        width: 90%;
-        font-size: 0.8rem;
-      }
-      input[type="submit"] {
-        width: 90%;
-        font-size: 0.8rem;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Attendance Bot Registration</h1>
+    <p>A whatsapp bot which will bi-weekly(Monday and Friday) generate attendance reports giving info as to how many classes one need to attend from the next 10 to reach a certain % of attendance(sub-divided into four: 33%, 50%, 75%, 90%) for each subject.</p>
+    <p>To understand it better take a look at this pic: <img src="" alt=""/></p>
+    <p>DISCLAIMER: Not associated with SGGSCC and was built as an independent side project, provide credentials if you trust fully.</p>
     <div id="loader"></div>
     <form class="form-class">
       <label for="name">Name:</label>
-      <br>
-      <input type="text" id="name" name="name" required><br>
+      <input type="text" id="name" name="name" required>
       <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required><br>
+      <input type="tel" id="phone" name="phone" required>
       <label for="email">SGGSCC Mail:</label>
-      <input type="email" id="email" name="email" required><br>
+      <input type="email" id="email" name="email" required>
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br>
+      <input type="password" id="password" name="password" required>
       <input id="submit-btn" type="submit" value="Submit">
       <!-- <div id="output"></div> -->
     </form>
