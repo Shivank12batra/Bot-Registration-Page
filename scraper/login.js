@@ -17,6 +17,7 @@ const checkCredentials = async(email, password) => {
         )
         const browser = await puppeteer.launch({
             headless: false,
+            args: ['--no-sandbox','--disable-setuid-sandbox'],
             executablePath: executablePath(),
         });
         const page = await browser.newPage();
