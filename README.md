@@ -4,7 +4,7 @@ This is a frontend bot registration page for the WhatsApp Attendance Bot, check 
 
 [https://sggscc-attendance-bot.onrender.com/](https://sggscc-attendance-bot.onrender.com/)
 
-![Screenshot](assets\whatsapp_bot_img.jpg)
+![Screenshot](assets/whatsapp_bot_img.jpg)
 
 ## Description
 
